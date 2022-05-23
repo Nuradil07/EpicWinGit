@@ -1,0 +1,21 @@
+I am going to leave the Steps for pulling and pushing the codes here !
+Do pulling everyDay in the morning before you start working
+Do pushing after you done working and when you made changes
+
+Two Main action that you need fro Github
+1. How to push your code to Github
+    a. git init --> you are going into the Repository
+    b. add something to your local
+        git add . --> you are adding your changes to staging
+    c. git commit -m "your massage"  --> you are committing your local changes
+    d. git push --> pushing your local changes to your remote branch(not mater or main branch)
+    e. click on URL that appear in  order to create PR (Pull Request)
+    NOTE: One of your D2D activities is pulling the updated version of the framework(code) from the GIT version tool that your are using(Github, Bitbucket, Gitlap)
+
+2. How to pull the updated code from GitHub
+    a. git stash(if you have uncommitted changes!)
+    b. git checkout main/master --> you are now on master/main branch
+    c. git pull --> pulling the updated version of the code from remote repo
+    d. git checkout your branch "Nurdin" --> switching to your local branch
+    e. git merge master/main branch
+    f. git unstash your changes
