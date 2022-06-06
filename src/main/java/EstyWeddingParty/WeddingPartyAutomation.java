@@ -7,6 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 import java.util.Collections;
@@ -61,4 +66,48 @@ public class WeddingPartyAutomation {
         Assert.assertEquals(actualResult,expectedResult);
 
     }
+
+    /*
+    Test Case ID: T-0102
+    Test Case Summary: Check Wedding Jewelry Collection
+    Pre-Condition: User doesn’t have an account
+    Test Data: N/A
+    Expected Result: User should be able to see all Wedding Jewelry Collection
+    1. User navigates to Etsy - Shop for handmade, vintage, custom, and unique gifts for everyone
+    2. User clicks Wedding & Party dropdown on homepage.
+    3. User clicks Wedding Jewelry Button.
+    Expected Result: User should see all Wedding Jewelry Collection.
+    Actual Result: User sees all Wedding Jewelry Collection.
+     */
+
+
+     @Test
+    public void weddingJewelryButton(){
+
+         WebDriverManager.chromedriver().setup();
+         WebDriver driver = new ChromeDriver();
+         driver.manage().window().maximize();
+         driver.get("https://www.etsy.com/");
+
+         WebElement weddingPartyButton = driver.findElement(By.xpath("//a/span[@id='catnav-primary-link-10983'] "));
+         weddingPartyButton.click();
+         WebElement jewelryButton = driver.findElement(By.partialLinkText("Jewelry"));
+         jewelryButton.click();
+
+
+
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
