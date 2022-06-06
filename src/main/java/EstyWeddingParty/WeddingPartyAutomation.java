@@ -2,13 +2,14 @@ package EstyWeddingParty;
 
 import Utils.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.*;
 
@@ -32,10 +33,8 @@ public class WeddingPartyAutomation {
 
     }
 
-
-
     @Test
-    public void TestCase900() throws InterruptedException {
+    public void TestCase900() throws InterruptedException, IOException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -51,14 +50,13 @@ public class WeddingPartyAutomation {
         List<WebElement> allPrices = driver.findElements(By.xpath("//p[@class='wt-text-title-01']//span[@class='currency-value'][1]"));
         List<Double> actualResult = new ArrayList<>();
         List<Double> expectedResult = new ArrayList<>();
-        for(int i = 4; i< allPrices.size();i++){
+        for(int i = 0; i< allPrices.size() ;i++){
             actualResult.add(Double.parseDouble(BrowserUtils.getText(allPrices.get(i))));
             expectedResult.add(Double.parseDouble(BrowserUtils.getText(allPrices.get(i))));
         }
         Collections.sort(expectedResult);
-        System.out.println(expectedResult);
-        System.out.println(actualResult);
         Assert.assertEquals(actualResult,expectedResult);
+
 
     }
 }
