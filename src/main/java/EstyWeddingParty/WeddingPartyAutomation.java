@@ -94,8 +94,6 @@ public class WeddingPartyAutomation {
          WebElement jewelryButton = driver.findElement(By.partialLinkText("Jewelry"));
          jewelryButton.click();
 
-
-
      }
 
 
